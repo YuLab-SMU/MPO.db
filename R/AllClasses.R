@@ -15,8 +15,8 @@ setMethod("keys", "MPODb",
         } else {
             return(unique(toTable(MPOTERM)[, keytype]))
         }
-        
-        
+
+
     }
 )
 
@@ -39,7 +39,7 @@ setMethod("select", "MPODb",
         if (length(setdiff(columns, c("mgi", "doid"))) > 0) {
             columns <- unique(c("mpid", columns))
         }
-        if (keytype == "mgi") {      
+        if (keytype == "mgi") {
             columns2 <- setdiff(columns, c("mgi", "doid"))
             if (length(columns2) > 0) {
                 sqls <- paste("SELECT ", paste(columns, collapse = ","),
@@ -59,7 +59,7 @@ setMethod("select", "MPODb",
                 sqls <- paste("SELECT ", paste(columns, collapse = ","),
                     " FROM mgi_doid")
                 sqls <- c(sqls, paste0("WHERE mgi_doid.mgi in (", strKeys, ")"))
-            }          
+            }
         }
         if (keytype == "term") {
             sqls <- paste("SELECT ", paste(columns, collapse = ","),
@@ -72,9 +72,10 @@ setMethod("select", "MPODb",
                     sqls <- c(sqls, leftJoin)
                 }
             }
-            sqls <- c(sqls, paste0("WHERE mp_term.term in (", strKeys, ")"))                    
+            sqls <- c(sqls,
+                    paste0("WHERE mp_term.term in (", strKeys, ")"))
         }
-        
+
         if (keytype == "mpid") {
             sqls <- paste("SELECT ", paste(columns, collapse = ","),
                 " FROM mp_term")
@@ -86,7 +87,8 @@ setMethod("select", "MPODb",
                     sqls <- c(sqls, leftJoin)
                 }
             }
-            sqls <- c(sqls, paste0("WHERE mp_term.mpid in (", strKeys, ")"))        
+            sqls <- c(sqls,
+                    paste0("WHERE mp_term.mpid in (", strKeys, ")"))
         }
         sqls <- paste(sqls, collapse = " ")
         res <- dbQuery(dbconn(x), sqls)

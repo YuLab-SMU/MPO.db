@@ -5,9 +5,25 @@ Version: 0.99.0
 Authors@R: c(
       person(given = "Erqiang", family = "Hu", email = "13766876214@163.com", role  = c("aut", "cre"), comment = c(ORCID = "0000-0002-1798-7513"))
       )
-Description: A set of annotation maps describing the Mouse Phenotype Ontology ans Human disease. The annotation data comes from
-    MGI database and alliancegenome database. 
+Description: We have developed the human disease ontology R package HDO.db, 
+    which provides the semantic relationship between human diseases.
+    Relying on the DOSE and GOSemSim packages we developed, we can carry out 
+    disease enrichment and semantic similarity analyses. 
+    Many biological studies are achieved through mouse models,  
+    and a large number of data indicate the association between genotypes 
+    and phenotypes or diseases.  The study of model organisms can be transformed 
+    into useful knowledge about normal human biology and disease to 
+    facilitate treatment and early screening for diseases. 
+    Organism-specific genotype-phenotypic associations can be applied 
+    to cross-species phenotypic studies to clarify previously unknown 
+    phenotypic connections in other species. Using the same principle 
+    to diseases can identify genetic associations and even help to 
+    identify disease associations that are not obvious. Therefore, 
+    as a supplement to HDO.db and DOSE, we developed mouse phenotypic 
+    ontology R package MPO.db.
 License: Artistic-2.0
+BugReports: https://github.com/YuLab-SMU/MPO.db/issues
+biocViews: AnnotationData, FunctionalAnnotation
 Encoding: UTF-8
 LazyData: false
 RoxygenNote: 7.2.1

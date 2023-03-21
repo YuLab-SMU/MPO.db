@@ -2,15 +2,15 @@
 title: "MPO_vignette"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{MPO_vignette}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+    %\VignetteIndexEntry{MPO_vignette}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
+    collapse = TRUE,
+    comment = "#>"
 )
 ```
 
@@ -45,22 +45,30 @@ MPO.db mainly contains four kinds of annotation information, which come from:
 
 (1) Mammalian Phenotype Ontology data
 The ontology data contains the id, name, def, and synonym of the ontology, 
-as also as the parent-child relationship between the ontology. The data comes from:
-MPheno_OBO.ontology file downloaded from http://www.informatics.jax.org/downloads/reports/index.html#pheno.
+as also as the parent-child relationship between the ontology. 
+The data comes from:
+MPheno_OBO.ontology file downloaded from 
+http://www.informatics.jax.org/downloads/reports/index.html#pheno.
 
 (2) Gene-phenotype association data
-These data demonstrate the effect of each genotype on the phenotype. The data come from:
-MGI database(http://www.informatics.jax.org/downloads/reports/index.html#pheno) and 
-IMPC database(http://ftp.ebi.ac.uk/pub/databases/impc/all-data-releases/release-18.0/results/).
+These data demonstrate the effect of each genotype on the phenotype.
+The data come from:
+MGI database(http://www.informatics.jax.org/downloads/reports/index.html#pheno)
+and IMPC database
+(http://ftp.ebi.ac.uk/pub/databases/impc/all-data-releases/
+release-18.0/results/).
 
 (3) Gene-disease association data
-These data demonstrate the effect of each genotype on the disease. The data come from:
+These data demonstrate the effect of each genotype on the disease. 
+The data come from:
 MGI database(http://www.informatics.jax.org/downloads/reports/index.html#pheno),
-IMPC database(http://ftp.ebi.ac.uk/pub/databases/impc/all-data-releases/release-18.0/results/),
+IMPC database(http://ftp.ebi.ac.uk/pub/databases/impc/all-data-releases/
+release-18.0/results/),
 and alliance of genome resources(https://www.alliancegenome.org/downloads).
 
 (4) Phenotype-disease association data
-These data demonstrate the effect of each phenotype on the disease. The data come from:
+These data demonstrate the effect of each phenotype on the disease. 
+The data come from:
 https://github.com/DiseaseOntology/HumanDiseaseOntology,
 and https://github.com/mapping-commons/mh_mapping_initiative.
 
@@ -126,7 +134,8 @@ between MP terms: MPOANCESTOR,MPOPARENTS,MPOOFFSPRING, and MPOCHILDREN.
 
 ### MPOANCESTOR
 MPOANCESTOR describes the association between MP terms and their ancestral 
-terms based on a directed acyclic graph (DAG) defined by the Mouse Phenotype Ontology.
+terms based on a directed acyclic graph (DAG) defined by the Mouse
+Phenotype Ontology.
 We can use `toTable` function in `AnnotationDbi` package to get a two-column 
 data.frame: the first column means the MP term ids, and the second column means 
 their ancestor terms.
