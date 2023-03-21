@@ -43,7 +43,10 @@ ontology R package MPO.db.
 
 MPO.db mainly contains four kinds of annotation information, which come from:
 
+
 (1) Mammalian Phenotype Ontology data
+
+
 The ontology data contains the id, name, def, and synonym of the ontology, 
 as also as the parent-child relationship between the ontology. 
 The data comes from:
@@ -51,6 +54,8 @@ MPheno_OBO.ontology file downloaded from
 http://www.informatics.jax.org/downloads/reports/index.html#pheno.
 
 (2) Gene-phenotype association data
+
+
 These data demonstrate the effect of each genotype on the phenotype.
 The data come from:
 MGI database(http://www.informatics.jax.org/downloads/reports/index.html#pheno)
@@ -59,6 +64,8 @@ and IMPC database
 release-18.0/results/).
 
 (3) Gene-disease association data
+
+
 These data demonstrate the effect of each genotype on the disease. 
 The data come from:
 MGI database(http://www.informatics.jax.org/downloads/reports/index.html#pheno),
@@ -67,6 +74,8 @@ release-18.0/results/),
 and alliance of genome resources(https://www.alliancegenome.org/downloads).
 
 (4) Phenotype-disease association data
+
+
 These data demonstrate the effect of each phenotype on the disease. 
 The data come from:
 https://github.com/DiseaseOntology/HumanDiseaseOntology,
@@ -115,16 +124,16 @@ dotermlist <- as.list(MPOTERM)
 head(dotermlist)
 ```
 
-get alias of `MP:0000013`
+get alias of `MP:0000003`
 ```{r}
 doalias <- as.list(MPOALIAS)
-doalias[['MP:0000013']]
+doalias[['MP:0000003']]
 ```
 
-get synonym of `MP:0000013`
+get synonym of `MP:0000003`
 ```{r}
 dosynonym <- as.list(MPOSYNONYM)
-dosynonym[['MP:0000013']]
+dosynonym[['MP:0000003']]
 ```
 
 
@@ -173,10 +182,10 @@ MPOPARENTS describes the association between MP terms and their offspring
 terms based on DAG. it's the exact opposite of `MPOANCESTOR`, 
 whose usage is similar to it.
 
-get offspring of "MP:0000013"
+get offspring of "MP:0000010"
 ```{r}
 off_list <- AnnotationDbi::as.list(MPO.db::MPOOFFSPRING)
-off_list[["MP:0000013"]]
+off_list[["MP:0000010"]]
 ```
 
 ### MPOCHILDREN
@@ -184,10 +193,10 @@ MPOCHILDREN describes the association between MP terms and their direct
 children terms based on DAG. it's the exact opposite of `MPOPARENTS`, 
 whose usage is similar to it.
 
-get children of "MP:0000013"
+get children of "MP:0000003"
 ```{r}
 child_list <- AnnotationDbi::as.list(MPO.db::MPOCHILDREN)
-child_list[["MP:0000013"]]
+child_list[["MP:0000003"]]
 ```
 
 The MPO.db support the `select()`, `keys()`, `keytypes()`,
