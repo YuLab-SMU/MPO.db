@@ -12,7 +12,8 @@ MPO_dbInfo <- function() dbInfo(datacache)
 
 make_MPO.db <- function() {
     ah <- suppressMessages(AnnotationHub())
-    dbfile <- ah[["AH89328", verbose=FALSE]]  
+    # AHxx need to change after uploading data
+    dbfile <- ah[["AHxx", verbose=FALSE]]  
     conn <- AnnotationDbi::dbFileConnect( dbfile )
     db <- new("MPO.db", conn=conn)
     db
