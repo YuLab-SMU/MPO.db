@@ -8,6 +8,18 @@ MPO_dbschema <- function(file="", show.indices=FALSE) dbschema(datacache,
     file=file, show.indices=show.indices)
 MPO_dbInfo <- function() dbInfo(datacache)
 
+
+
+make_MPO.db <- function() {
+    ah <- suppressMessages(AnnotationHub())
+    dbfile <- ah[["AH89328", verbose=FALSE]]  
+    conn <- AnnotationDbi::dbFileConnect( dbfile )
+    db <- new("MPO.db", conn=conn)
+    db
+}
+
+
+
 .onLoad <- function(libname, pkgname)
 {
     dbfile <- system.file("extdata", "MPO.sqlite", package=pkgname,
@@ -25,6 +37,8 @@ MPO_dbInfo <- function() dbInfo(datacache)
     dbObjectName <- getFromNamespace("dbObjectName", "AnnotationDbi")
     dbNewname <- dbObjectName(pkgname,"MPODb")
     ns <- asNamespace(pkgname)
+    makeCachedActiveBinding("MPO.db", make_MPO.db, env=ns)
+    namespaceExport(ns, "MPO.db")
     assign(dbNewname, txdb, envir=ns)
     namespaceExport(ns, dbNewname)
 
