@@ -23,7 +23,7 @@ Description: We have developed the human disease ontology R package HDO.db,
     ontology R package MPO.db.
 License: Artistic-2.0
 BugReports: https://github.com/YuLab-SMU/MPO.db/issues
-biocViews: AnnotationData, FunctionalAnnotation
+biocViews: AnnotationData, FunctionalAnnotation, AnnotationHub
 Encoding: UTF-8
 LazyData: false
 RoxygenNote: 7.2.1
