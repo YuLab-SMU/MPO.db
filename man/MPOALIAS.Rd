@@ -15,6 +15,17 @@
     xx <- as.list(MPOALIAS)
 }
 
+\value{
+    \code{MPO_dbconn}: a DBIConnection object representing an
+    open connection to the package annotation DB.
+
+    \code{MPO_dbfile}: a character string with the path to the
+    package annotation DB.
+
+    \code{MPO_dbschema}: none (invisible \code{NULL}).
+
+    \code{MPO_dbInfo}: none (invisible \code{NULL}).
+}
 
 \references{
 \url{http://hdo-wiki.nubic.northwestern.edu/index.php/Main_Page} 

@@ -9,6 +9,18 @@
     With a date stamp from the source of: 20230302
 }
 
+\value{
+    \code{MPO_dbconn}: a DBIConnection object representing an
+    open connection to the package annotation DB.
+
+    \code{MPO_dbfile}: a character string with the path to the
+    package annotation DB.
+
+    \code{MPO_dbschema}: none (invisible \code{NULL}).
+
+    \code{MPO_dbInfo}: none (invisible \code{NULL}).
+}
+
 \examples{
     # Convert the object to a data.frame
     library(AnnotationDbi)

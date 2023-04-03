@@ -13,6 +13,19 @@
     Each of these objects has their own manual page detailing where
     relevant data was obtained along with some examples of how to use it.
 }
+
+\value{
+    \code{MPO_dbconn}: a DBIConnection object representing an
+    open connection to the package annotation DB.
+
+    \code{MPO_dbfile}: a character string with the path to the
+    package annotation DB.
+
+    \code{MPO_dbschema}: none (invisible \code{NULL}).
+
+    \code{MPO_dbInfo}: none (invisible \code{NULL}).
+}
+
 \examples{
     # Convert the object to a list
     ls("package:MPO.db")
