@@ -9,24 +9,36 @@ MPO_dbschema <- function(file="", show.indices=FALSE) dbschema(datacache,
 MPO_dbInfo <- function() dbInfo(datacache)
 
 
-
-make_MPO.db <- function() {
-    ah <- suppressMessages(AnnotationHub())
-    MPODb <- setRefClass("MPODb", contains="GODb")
-    dbfile <- ah[["AH111553", verbose=FALSE]]  
-    conn <- AnnotationDbi::dbFileConnect(dbfile$conn@dbname)
-    db <- new("MPO.db", conn=conn)
-    db
-}
-
-
-
 .onLoad <- function(libname, pkgname)
 {
-    MPODb <- setRefClass("MPODb", contains="AnnotationDb")
+    MPODb <- setRefClass("MPODb", contains="GODb")
+    ah <- suppressMessages(AnnotationHub())
+    txdb <- ah[["AH111553", verbose=FALSE]] 
+    dbfile <- txdb$conn@dbname
+    txdb <- loadDb(dbfile, packageName=pkgname)
+
+    ## To avoid error reason: replacement has 70029 rows, data has 0
+    save(txdb, file = "txdb.Rdata")
+    on.exit(file.remove("txdb.Rdata"))
+    ##############
+
+    assign("dbfile", dbfile, envir=datacache)
+    dbconn <- dbFileConnect(dbfile)
+    assign("dbconn", dbconn, envir=datacache)
+    MPODb <- setRefClass("MPODb", contains="GODb")
+    ## Create the OrgDb object
+    sPkgname <- sub(".db$","",pkgname)
+
+  
+    dbObjectName <- getFromNamespace("dbObjectName", "AnnotationDbi")
+    dbNewname <- dbObjectName(pkgname,"MPODb")
     ns <- asNamespace(pkgname)
-    makeCachedActiveBinding("MPO.db", make_MPO.db, env=ns)
-    namespaceExport(ns, "MPO.db")
+    assign(dbNewname, txdb, envir=ns)
+    namespaceExport(ns, dbNewname)
+
+    ## Create the AnnObj instances
+    ann_objs <- createAnnObjs.MPO_DB(sPkgname, sPkgname, dbconn, datacache)
+    mergeToNamespaceAndExport(ann_objs, pkgname)
 }
 
 .onUnload <- function(libpath)

@@ -1,7 +1,7 @@
 Package: MPO.db
 Type: Package
 Title: A set of annotation maps describing the Mouse Phenotype Ontology
-Version: 0.99.0
+Version: 0.99.1
 Authors@R: c(
       person(given = "Erqiang", family = "Hu", email = "13766876214@163.com", role  = c("aut", "cre"), comment = c(ORCID = "0000-0002-1798-7513"))
       )
@@ -26,12 +26,13 @@ BugReports: https://github.com/YuLab-SMU/MPO.db/issues
 biocViews: AnnotationData, FunctionalAnnotation, AnnotationHub
 Encoding: UTF-8
 LazyData: false
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Depends:
     R (>= 4.2.0)
 Imports: 
     AnnotationDbi,
     AnnotationHub,
+    BiocFileCache,
     methods,
     utils
 Suggests: 
