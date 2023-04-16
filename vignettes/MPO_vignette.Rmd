@@ -1,6 +1,9 @@
 ---
 title: "MPO_vignette"
-output: rmarkdown::html_vignette
+output:
+  BiocStyle::html_document:
+    toc: true
+    toc_float: true
 vignette: >
     %\VignetteIndexEntry{MPO_vignette}
     %\VignetteEngine{knitr::rmarkdown}
