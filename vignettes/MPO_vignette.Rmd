@@ -1,5 +1,10 @@
 ---
 title: "MPO_vignette"
+author: 
+- name: Erqiang Hu
+  email: 13766876214@163.com
+  affiliation: Department of Bioinformatics, School of Basic Medical Sciences, Southern Medical University
+date: "`r Sys.Date()`"
 output:
   BiocStyle::html_document:
     toc: true
@@ -84,6 +89,16 @@ The data come from:
 https://github.com/DiseaseOntology/HumanDiseaseOntology,
 and https://github.com/mapping-commons/mh_mapping_initiative.
 
+##  :hammer: Installation
+
+The released version from `Bioconductor`
+
+```{r eval=FALSE}
+if (!requireNamespace("BiocManager", quietly=TRUE))
+    install.packages("BiocManager")
+## BiocManager::install("BiocUpgrade") ## you may need this
+BiocManager::install("MPO.db")
+```
 
 ```{r setup}
 library(MPO.db)

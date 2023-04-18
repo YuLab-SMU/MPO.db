@@ -8,7 +8,6 @@ MPO_dbschema <- function(file="", show.indices=FALSE) dbschema(datacache,
     file=file, show.indices=show.indices)
 MPO_dbInfo <- function() dbInfo(datacache)
 
-
 .onLoad <- function(libname, pkgname)
 {
     ## To avoid error reason: this db is of type MPODb 
@@ -21,8 +20,8 @@ MPO_dbInfo <- function() dbInfo(datacache)
     txdb <- loadDb(dbfile, packageName=pkgname)
 
     ## To avoid error reason: replacement has 70029 rows, data has 0
-    save(txdb, file = "txdb.Rdata")
-    on.exit(file.remove("txdb.Rdata"))
+    # save(txdb, file = "txdb.Rdata")
+    # on.exit(file.remove("txdb.Rdata"))
     ##############
 
     assign("dbfile", dbfile, envir=datacache)

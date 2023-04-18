@@ -1,9 +1,5 @@
 MPODb <- setRefClass("MPODb", contains="AnnotationDb")
-.keys <- getFromNamespace(".keys", "AnnotationDbi")
-.cols <- getFromNamespace(".cols", "AnnotationDbi")
-smartKeys <- getFromNamespace("smartKeys", "AnnotationDbi")
 
-.queryForKeys <- getFromNamespace(".queryForKeys", "AnnotationDbi")
 dbQuery <- getFromNamespace("dbQuery", "AnnotationDbi")
 
 
@@ -30,7 +26,7 @@ setMethod("keytypes", "MPODb",
 
 
 setMethod("select", "MPODb",
-    function(x, keys, columns, keytype, ...){
+    function(x, keys, columns, keytype = "mpid", ...){
         if (missing(keytype)) keytype <- "mpid"
         keytype <- match.arg(keytype, c("mpid","term", "mgi"))
         strKeys <- paste0("\"", keys, "\"", collapse = ",")

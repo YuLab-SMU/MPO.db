@@ -1,7 +1,7 @@
 Package: MPO.db
 Type: Package
 Title: A set of annotation maps describing the Mouse Phenotype Ontology
-Version: 0.99.2
+Version: 0.99.3
 Authors@R: c(
       person(given = "Erqiang", family = "Hu", email = "13766876214@163.com", role  = c("aut", "cre"), comment = c(ORCID = "0000-0002-1798-7513"))
       )
@@ -23,6 +23,7 @@ Description: We have developed the human disease ontology R package HDO.db,
     ontology R package MPO.db.
 License: Artistic-2.0
 BugReports: https://github.com/YuLab-SMU/MPO.db/issues
+URL: https://github.com/YuLab-SMU/MPO.db
 biocViews: AnnotationData, FunctionalAnnotation, AnnotationHub
 Encoding: UTF-8
 LazyData: false
