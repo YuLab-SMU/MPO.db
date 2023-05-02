@@ -20,7 +20,8 @@ meta <- data.frame(
       DataProvider = "MGI",
       Maintainer = "Erqiang Hu <13766876214@163.com>",
       RDataClass = "SQLite",
-      DispatchClass = "SQLiteFile",
+      # DispatchClass = "SQLiteFile",
+      DispatchClass = "FilePath",
       RDataPath = "MPO.db/MPO.sqlite",
       ResourceName = "MPO.sqlite",
       Tags = "Annotation"
