@@ -1,8 +1,5 @@
 MPODb <- setRefClass("MPODb", contains="AnnotationDb")
-
-dbQuery <- getFromNamespace("dbQuery", "AnnotationDbi")
-
-
+# dbQuery <- getFromNamespace("dbQuery", "AnnotationDbi")
 setMethod("keys", "MPODb",
     function(x, keytype, ...){
         if(missing(keytype)) keytype <- "mpid"
@@ -87,7 +84,8 @@ setMethod("select", "MPODb",
                     paste0("WHERE mp_term.mpid in (", strKeys, ")"))
         }
         sqls <- paste(sqls, collapse = " ")
-        res <- dbQuery(dbconn(x), sqls)
+        # res <- dbQuery(dbconn(x), sqls)
+        res <- DBI::dbGetQuery(dbconn(x), sqls)
         return(res)
     }
 )

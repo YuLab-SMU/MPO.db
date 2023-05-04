@@ -1,5 +1,6 @@
 importFrom(utils, getFromNamespace)
 import(methods)
+import(DBI)
 import(AnnotationDbi)
 import(AnnotationHub)
 importFrom(BiocFileCache, makeCachedActiveBinding)

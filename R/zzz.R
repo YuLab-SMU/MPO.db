@@ -12,11 +12,13 @@ MPO_dbInfo <- function() dbInfo(datacache)
 {
     ## To avoid error reason: this db is of type MPODb 
     ## but this is not a defined class
-    MPODb <- setRefClass("MPODb", contains="AnnotationDb")
+    # 
     # ah <- suppressMessages(AnnotationHub())
     ah <- AnnotationHub()
     txdb <- ah[["AH111553", verbose=FALSE]] 
-    dbfile <- txdb$conn@dbname
+    # dbfile <- txdb$conn@dbname
+    dbfile <- txdb
+    MPODb <- setRefClass("MPODb", contains="AnnotationDb")
     txdb <- loadDb(dbfile, packageName=pkgname)
 
     ## To avoid error reason: replacement has 70029 rows, data has 0
@@ -29,12 +31,13 @@ MPO_dbInfo <- function() dbInfo(datacache)
     assign("dbconn", dbconn, envir=datacache)
 
     ## To avoid error reason: replacement has 70029 rows, data has 0
-    MPODb <- setRefClass("MPODb", contains="AnnotationDb")
+    # MPODb <- setRefClass("MPODb", contains="AnnotationDb")
     ##################
     ## Create the OrgDb object
     sPkgname <- sub(".db$","",pkgname) 
-    dbObjectName <- getFromNamespace("dbObjectName", "AnnotationDbi")
-    dbNewname <- dbObjectName(pkgname,"MPODb")
+    # dbObjectName <- getFromNamespace("dbObjectName", "AnnotationDbi")
+    # dbNewname <- dbObjectName(pkgname,"MPODb")
+    dbNewname <- pkgname
     ns <- asNamespace(pkgname)
     assign(dbNewname, txdb, envir=ns)
     namespaceExport(ns, dbNewname)
