@@ -23,14 +23,6 @@ knitr::opts_chunk$set(
 ```
 
 
-
-## Authors
-Erqiang Hu
-
-Department of Bioinformatics, School of Basic Medical Sciences, 
-Southern Medical University.
-
-
 ## Introduction
 We have developed the human disease ontology R package HDO.db, 
 which provides the semantic relationship between human diseases.
