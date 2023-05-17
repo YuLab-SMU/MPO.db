@@ -1,4 +1,4 @@
-make_MPO.db <- function() {datacache
+make_MPO.db <- function() {
     ah <- suppressMessages(AnnotationHub())
     dbfile <- ah[["AH111553", verbose=FALSE]]  
     conn <- AnnotationDbi::dbFileConnect(dbfile)
