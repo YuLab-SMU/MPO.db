@@ -1,26 +1,26 @@
 ---
 title: "MPO_vignette"
-author: 
-- name: Erqiang Hu
-  email: 13766876214@163.com
-  affiliation: Department of Bioinformatics, School of Basic Medical Sciences, Southern Medical University
-date: "`r Sys.Date()`"
-output:
-  BiocStyle::html_document:
-    toc: true
-    toc_float: true
+output: rmarkdown::html_vignette
 vignette: >
-    %\VignetteIndexEntry{MPO_vignette}
-    %\VignetteEngine{knitr::rmarkdown}
-    %\VignetteEncoding{UTF-8}
+  %\VignetteIndexEntry{MPO_vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
-    collapse = TRUE,
-    comment = "#>"
+  collapse = TRUE,
+  comment = "#>"
 )
 ```
+
+
+
+## Authors
+Erqiang Hu
+
+Department of Bioinformatics, School of Basic Medical Sciences, 
+Southern Medical University.
 
 
 ## Introduction
